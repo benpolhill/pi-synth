@@ -1,5 +1,5 @@
 # Gesture input
-skywriter==0.0.2
+skywriter
 
 # Audio synthesis
 numpy>=1.21.0
