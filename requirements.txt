@@ -1,0 +1,18 @@
+# Gesture input
+skywriter==0.0.2
+
+# Audio synthesis
+numpy>=1.21.0
+pygame>=2.1.0
+
+# Configuration
+pyyaml>=6.0
+
+# Labrador communication (may need manual install from source)
+# pyserial>=3.5
+
+# Optional: better audio synthesis
+# simpleaudio>=1.0.4
+
+# Development/testing
+pytest>=7.0.0

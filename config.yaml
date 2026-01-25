@@ -1,0 +1,80 @@
+# Gesture-Controlled AV Synth Configuration
+
+# Audio settings
+audio:
+  sample_rate: 44100
+  buffer_size: 512          # Lower = less latency, more CPU
+  
+  # Frequency range mapped to Y position (Hz)
+  freq_min: 110             # A2
+  freq_max: 880             # A5
+  
+  # Waveform: sine, square, triangle, sawtooth
+  default_waveform: sine
+  
+  # Master volume (0.0 - 1.0)
+  master_volume: 0.7
+
+# Visual settings  
+visuals:
+  window_width: 800
+  window_height: 600
+  fullscreen: false
+  fps: 60
+  
+  # Background colour (RGB)
+  bg_color: [10, 10, 20]
+  
+  # Shape settings
+  shape: circle             # circle, square, triangle, blob
+  min_size: 20
+  max_size: 300
+  
+  # Colour mode: hue_shift, palette, reactive
+  colour_mode: hue_shift
+
+# Gesture input settings
+gesture:
+  # Smoothing factor (0.0 = no smoothing, 0.99 = very smooth but laggy)
+  smoothing: 0.7
+  
+  # Dead zone at edges (0.0 - 0.2)
+  edge_deadzone: 0.05
+  
+  # Z (height) range in arbitrary Skywriter units
+  z_min: 0
+  z_max: 65535
+  
+  # Touch zones enable different modes
+  touch_enabled: true
+
+# Parameter mapping
+mapping:
+  # x_position controls:
+  x_to_hue: true            # Colour hue (0-360)
+  x_to_pan: true            # Audio stereo pan
+  
+  # y_position controls:
+  y_to_pitch: true          # Audio frequency
+  y_to_shape_morph: false   # Shape morphing (if implemented)
+  
+  # z_position controls:
+  z_to_volume: true         # Audio amplitude
+  z_to_size: true           # Visual size
+  z_to_brightness: true     # Visual brightness
+  
+  # Curve type: linear, exponential, logarithmic
+  curve: exponential
+
+# Labrador settings (optional enhancement)
+labrador:
+  enabled: false            # Set true if connected
+  port: /dev/ttyACM0        # Typical Linux USB serial
+  waveform_out: true        # Send waveform to Labrador generator
+  scope_in: false           # Read scope data back (advanced)
+
+# Debug settings
+debug:
+  show_fps: true
+  show_gesture_data: true
+  log_level: INFO           # DEBUG, INFO, WARNING, ERROR
