@@ -25,6 +25,12 @@ This runs on a Raspberry Pi 3B. When testing locally (not on Pi):
 - Use `--mock` flag to simulate Skywriter input
 - Use `--no-audio` if no speakers available
 
+**Important:** On the Pi, the venv must be created with `--system-site-packages` to access `python3-smbus` for I2C:
+```bash
+sudo apt install python3-smbus
+python3 -m venv venv --system-site-packages
+```
+
 ```bash
 # On Pi with hardware
 python src/main.py --debug

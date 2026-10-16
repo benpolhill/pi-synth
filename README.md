@@ -88,14 +88,16 @@ sudo raspi-config
 
 ```bash
 sudo apt update
-sudo apt install python3-pip python3-venv python3-pygame libsdl2-mixer-2.0-0
+sudo apt install python3-pip python3-venv python3-pygame libsdl2-mixer-2.0-0 python3-smbus
 ```
 
 ### 3. Create virtual environment
 
+The `--system-site-packages` flag is required so the venv can access `python3-smbus` (needed for I2C/Skywriter):
+
 ```bash
 cd gesture-av-synth
-python3 -m venv venv
+python3 -m venv venv --system-site-packages
 source venv/bin/activate
 ```
 
@@ -112,9 +114,9 @@ Follow instructions at: https://github.com/EspoTek/Labrador
 ### 6. Test components individually
 
 ```bash
-python tests/test_gesture.py   # Wave hand over Skywriter
-python tests/test_audio.py     # Should hear test tones
-python tests/test_labrador.py  # Check USB connection
+python ./test_gesture.py   # Wave hand over Skywriter
+python ./test_audio.py     # Should hear test tones
+python ./test_labrador.py  # Check USB connection
 ```
 
 ### 7. Run the synth
